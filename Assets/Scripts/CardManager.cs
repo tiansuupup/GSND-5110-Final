@@ -47,26 +47,36 @@ public class CardManager : MonoBehaviour
         if (CompareID1 == CompareID2)
         {
             Debug.Log("Yes");
-
             CompareID1 = 0;
             CompareID2 = 0;
             CardName1 = "";
             CardName2 = "";
+            UpCards = 0;
             yield return new WaitForSeconds(0.8f);
+            yield break;
         }
 
 
         else
         {
-            Debug.Log("No");
-            GameObject.Find(CardName1).transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
-            GameObject.Find(CardName2).transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
-            CompareID1 = 0;
-            CompareID2 = 0;
-            CardName1 = "";
-            CardName2 = "";
+            if (CompareID1 != CompareID2)
+            {
+                Debug.Log("No");
+                UpCards = 0;
+                yield return new WaitForSeconds(1.5f);
+                GameObject.Find(CardName1).transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
+                GameObject.Find(CardName2).transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
+                
+                CompareID1 = 0;
+                CompareID2 = 0;
+                CardName1 = "";
+                CardName2 = "";
+                
+                
+                yield break;
 
-            yield return new WaitForSeconds(1.5f);
+            }
+               
         }
 
     }
