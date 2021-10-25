@@ -66,7 +66,14 @@ public class CardManager : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
                 GameObject.Find(CardName1).transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
                 GameObject.Find(CardName2).transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
-                
+
+
+
+                //GameObject.Find(CardName2).GetComponent(CardName2).isUp = false;//why!!!!!!!!!
+
+
+
+
                 CompareID1 = 0;
                 CompareID2 = 0;
                 CardName1 = "";
