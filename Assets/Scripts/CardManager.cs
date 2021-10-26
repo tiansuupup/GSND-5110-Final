@@ -12,11 +12,11 @@ public class CardManager : MonoBehaviour
     public int CompareID2 = 0;
     public string CardName1 = "";
     public string CardName2 = "";
+    
     void Start()
     {
         Cards.Shuffle(24);//Randomly shuffle swap 24 cards
         PutCards();
-
 
     }
 
@@ -47,6 +47,7 @@ public class CardManager : MonoBehaviour
         if (CompareID1 == CompareID2)
         {
             Debug.Log("Yes");
+
             CompareID1 = 0;
             CompareID2 = 0;
             CardName1 = "";

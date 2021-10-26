@@ -6,13 +6,15 @@ public class Card1 : MonoBehaviour
 {
     public bool isUp = false;
     public int ID;
-    
+
+    public AudioClip flipSFX;
+    private AudioSource src;
 
     // Start is called before the first frame update
 
     void Start()
     {
-        
+        src = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,7 +32,9 @@ public class Card1 : MonoBehaviour
     {
 
         if (isUp == false)
-        {
+        {   
+            src.PlayOneShot(flipSFX);
+
             isUp = true;
             this.transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self); //flip the card
             GameObject.Find("CardManager").GetComponent<CardManager>().CardTurningUp();
