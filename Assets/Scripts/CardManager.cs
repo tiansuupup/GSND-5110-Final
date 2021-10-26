@@ -69,7 +69,109 @@ public class CardManager : MonoBehaviour
 
 
 
-                //GameObject.Find(CardName2).GetComponent(CardName2).isUp = false;//why!!!!!!!!!
+                   if (GameObject.Find(CardName1).GetComponent<Card1>() != null)       //Now try to flip the first wrong card
+                {
+                    GameObject.Find(CardName1).GetComponent<Card1>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card2>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card2>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card3>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card3>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card4>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card4>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card5>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card5>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card6>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card6>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card7>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card7>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card8>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card8>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card9>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card9>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card10>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card10>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card11>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card11>().isUp = false;
+                }
+                if (GameObject.Find(CardName1).GetComponent<Card12>() != null)
+                {
+                    GameObject.Find(CardName1).GetComponent<Card12>().isUp = false;
+                }
+
+
+                if (GameObject.Find(CardName2).GetComponent<Card1>() != null)       //Now try to flip the second wrong card
+                {
+                    GameObject.Find(CardName2).GetComponent<Card1>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card2>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card2>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card3>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card3>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card4>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card4>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card5>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card5>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card6>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card6>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card7>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card7>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card8>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card8>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card9>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card9>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card10>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card10>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card11>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card11>().isUp = false;
+                }
+                if (GameObject.Find(CardName2).GetComponent<Card12>() != null)
+                {
+                    GameObject.Find(CardName2).GetComponent<Card12>().isUp = false;
+                }
+
+
+
+
+
 
 
 
