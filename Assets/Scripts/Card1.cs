@@ -44,7 +44,7 @@ public class Card1 : MonoBehaviour
 
             else
 
-            if (GameObject.Find("CardManager").GetComponent<CardManager>().CompareID2 == 0)
+            if (GameObject.Find("CardManager").GetComponent<CardManager>().CompareID2 == 0 && GameObject.Find("CardManager").GetComponent<CardManager>().CompareID1 != 0)
             {
                 GameObject.Find("CardManager").GetComponent<CardManager>().CompareID2 = ID;
                 GameObject.Find("CardManager").GetComponent<CardManager>().CardName2 = this.name;
