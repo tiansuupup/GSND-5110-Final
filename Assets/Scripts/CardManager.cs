@@ -12,7 +12,10 @@ public class CardManager : MonoBehaviour
     public int CompareID2 = 0;
     public string CardName1 = "";
     public string CardName2 = "";
-    
+
+    public AudioSource audio_a;
+    public AudioSource audio_b;
+
     void Start()
     {
         Cards.Shuffle(24);//Randomly shuffle swap 24 cards
@@ -48,12 +51,35 @@ public class CardManager : MonoBehaviour
         {
             Debug.Log("Yes");
 
+            Time.timeScale = 0;
+
+            if(GameObject.Find(CardName1).GetComponent<AudioSource>() == null)
+            {
+                audio_a = GameObject.Find(CardName2).GetComponent<AudioSource>();
+                audio_a.Play();
+            }
+            
+            if(GameObject.Find(CardName2).GetComponent<AudioSource>() == null)
+            {
+                audio_a = GameObject.Find(CardName1).GetComponent<AudioSource>();
+                audio_a.Play();
+            }else{
+                audio_a = GameObject.Find(CardName1).GetComponent<AudioSource>();
+                audio_b = GameObject.Find(CardName2).GetComponent<AudioSource>();
+                audio_a.Play();
+                audio_b.Play();  
+            }
+
             CompareID1 = 0;
             CompareID2 = 0;
             CardName1 = "";
             CardName2 = "";
             UpCards = 0;
-            yield return new WaitForSeconds(0.8f);
+
+            yield return new WaitForSeconds(0.5f);
+            
+            Time.timeScale = 1;
+            
             yield break;
         }
 
@@ -169,20 +195,11 @@ public class CardManager : MonoBehaviour
                     GameObject.Find(CardName2).GetComponent<Card12>().isUp = false;
                 }
 
-
-
-
-
-
-
-
-
                 CompareID1 = 0;
                 CompareID2 = 0;
                 CardName1 = "";
                 CardName2 = "";
-                
-                
+                               
                 yield break;
 
             }

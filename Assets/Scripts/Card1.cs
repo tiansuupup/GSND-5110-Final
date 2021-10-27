@@ -7,14 +7,16 @@ public class Card1 : MonoBehaviour
     public bool isUp = false;
     public int ID;
 
-    public AudioClip flipSFX;
-    private AudioSource src;
+    // public AudioSource audio;
+    // public AudioClip flipSFX;
+    // private AudioSource src;
 
     // Start is called before the first frame update
 
     void Start()
     {
-        src = GetComponent<AudioSource>();
+        // src = GetComponent<AudioSource>();
+        // audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class Card1 : MonoBehaviour
 
         if (isUp == false)
         {   
-            src.PlayOneShot(flipSFX);
+            // src.PlayOneShot(flipSFX);
 
             isUp = true;
             this.transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self); //flip the card
@@ -44,6 +46,8 @@ public class Card1 : MonoBehaviour
             {
                 GameObject.Find("CardManager").GetComponent<CardManager>().CompareID1 = ID;
                 GameObject.Find("CardManager").GetComponent<CardManager>().CardName1 = this.name;
+
+                // GameObject.Find("CardManager").GetComponent<CardManager>(audio_a) = audio_1;
             }
 
             else
@@ -52,6 +56,8 @@ public class Card1 : MonoBehaviour
             {
                 GameObject.Find("CardManager").GetComponent<CardManager>().CompareID2 = ID;
                 GameObject.Find("CardManager").GetComponent<CardManager>().CardName2 = this.name;
+
+                // GameObject.Find("CardManager").GetComponent<CardManager>(audio_b) = audio_1;
             }
 
 
