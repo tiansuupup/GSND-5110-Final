@@ -96,7 +96,7 @@ public class CardManager : MonoBehaviour
 
 
 
-                   if (GameObject.Find(CardName1).GetComponent<Card1>() != null)       //Now try to flip the first wrong card
+                if (GameObject.Find(CardName1).GetComponent<Card1>() != null)       //Now try to flip the first wrong card
                 {
                     GameObject.Find(CardName1).GetComponent<Card1>().isUp = false;
                 }
