@@ -6676,6 +6676,8 @@ MonoBehaviour:
   CompareID2: 0
   CardName1: 
   CardName2: 
+  mousediable: {fileID: 1235874259315921420, guid: 73d1adfe062627a45b9d455c1a1ae576, type: 3}
+  Middle: {fileID: 1970120012}
   audio_a: {fileID: 0}
   audio_b: {fileID: 0}
 --- !u!4 &1928759199

@@ -12,7 +12,8 @@ public class CardManager : MonoBehaviour
     public int CompareID2 = 0;
     public string CardName1 = "";
     public string CardName2 = "";
-
+    public GameObject mousediable;
+    public GameObject Middle;
     public AudioSource audio_a;
     public AudioSource audio_b;
 
@@ -47,6 +48,7 @@ public class CardManager : MonoBehaviour
     
     IEnumerator CompareTwoCards()
     {
+        GameObject MouseDisabler = Instantiate(mousediable, Middle.transform.position, Middle.transform.rotation);
         if (CompareID1 == CompareID2)
         {
             Debug.Log("Yes");
@@ -57,17 +59,24 @@ public class CardManager : MonoBehaviour
             {
                 audio_a = GameObject.Find(CardName2).GetComponent<AudioSource>();
                 audio_a.Play();
+                Destroy(MouseDisabler);
+
             }
             
             if(GameObject.Find(CardName2).GetComponent<AudioSource>() == null)
             {
                 audio_a = GameObject.Find(CardName1).GetComponent<AudioSource>();
                 audio_a.Play();
-            }else{
+                Destroy(MouseDisabler);
+
+            }
+            else{
                 audio_a = GameObject.Find(CardName1).GetComponent<AudioSource>();
                 audio_b = GameObject.Find(CardName2).GetComponent<AudioSource>();
                 audio_a.Play();
-                audio_b.Play();  
+                audio_b.Play();
+                Destroy(MouseDisabler);
+
             }
 
             CompareID1 = 0;
@@ -75,10 +84,11 @@ public class CardManager : MonoBehaviour
             CardName1 = "";
             CardName2 = "";
             UpCards = 0;
-
-            yield return new WaitForSeconds(0.5f);
             
+            yield return new WaitForSeconds(0.5f);
+
             Time.timeScale = 1;
+            
             
             yield break;
         }
@@ -199,7 +209,7 @@ public class CardManager : MonoBehaviour
                 CompareID2 = 0;
                 CardName1 = "";
                 CardName2 = "";
-                               
+                Destroy(MouseDisabler);
                 yield break;
 
             }
