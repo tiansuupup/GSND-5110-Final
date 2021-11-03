@@ -7,16 +7,21 @@ public class CardManager : MonoBehaviour
 
     public Transform[] CardPoints; //Create the positions
     public GameObject[] Cards; //load all the cards
-    private int UpCards = 0;
+    public int UpCards = 0;
+    public bool isComparing = false;
     public int CompareID1 = 0;
     public int CompareID2 = 0;
     public string CardName1 = "";
     public string CardName2 = "";
     public GameObject mousediable;
     public GameObject Middle;
-    public AudioSource audio_a;
-    public AudioSource audio_b;
+    public AudioSource audioPlay;
+    public AudioClip[] audioClips;
 
+    
+    
+   
+    
     void Start()
     {
         Cards.Shuffle(24);//Randomly shuffle swap 24 cards
@@ -27,8 +32,9 @@ public class CardManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (UpCards == 2)
+        if (UpCards == 2 && isComparing == false)
         {
+            mousediable.GetComponent<BoxCollider>().enabled = true;
             StartCoroutine(CompareTwoCards());
         }
     }
@@ -48,46 +54,72 @@ public class CardManager : MonoBehaviour
     
     IEnumerator CompareTwoCards()
     {
-        GameObject MouseDisabler = Instantiate(mousediable, Middle.transform.position, Middle.transform.rotation);
+        AudioSource audioPlay = GetComponent<AudioSource>();
+        isComparing = true;
         if (CompareID1 == CompareID2)
         {
             Debug.Log("Yes");
 
-            Time.timeScale = 0;
-
-            if(GameObject.Find(CardName1).GetComponent<AudioSource>() == null)
-            {
-                audio_a = GameObject.Find(CardName2).GetComponent<AudioSource>();
-                audio_a.Play();
-                Destroy(MouseDisabler);
-
-            }
             
-            if(GameObject.Find(CardName2).GetComponent<AudioSource>() == null)
+
+            if (CardName1 == "Card1" || CardName2 == "Card1")                   //If the cardname match, play the certain audio. 
             {
-                audio_a = GameObject.Find(CardName1).GetComponent<AudioSource>();
-                audio_a.Play();
-                Destroy(MouseDisabler);
+
+
+                 
+                audioPlay.PlayOneShot(audioClips[4]);
+                yield return new WaitForSeconds(audioClips[4].length);          //WaitForSeconds of the length of the clip
+            }
+            if (CardName1 == "Card3" || CardName2 == "Card3")
+            {
+
+                audioPlay.PlayOneShot(audioClips[5]);
+                yield return new WaitForSeconds(audioClips[5].length);
+                audioPlay.PlayOneShot(audioClips[6]);
+                yield return new WaitForSeconds(audioClips[6].length);
 
             }
-            else{
-                audio_a = GameObject.Find(CardName1).GetComponent<AudioSource>();
-                audio_b = GameObject.Find(CardName2).GetComponent<AudioSource>();
-                audio_a.Play();
-                audio_b.Play();
-                Destroy(MouseDisabler);
+            if (CardName1 == "Card5" || CardName2 == "Card5")
+            {
+
+                audioPlay.PlayOneShot(audioClips[7]);
+                yield return new WaitForSeconds(audioClips[7].length);
+            }
+            if (CardName1 == "Card7" || CardName2 == "Card7")
+            {
+
+                audioPlay.PlayOneShot(audioClips[8]);
+                yield return new WaitForSeconds(audioClips[8].length);
+
+            }
+            if (CardName1 == "Card9" || CardName2 == "Card9")
+            {
+
+                audioPlay.PlayOneShot(audioClips[9]);
+                yield return new WaitForSeconds(audioClips[9].length);
+
+            }
+            if (CardName1 == "Card11" || CardName2 == "Card11")
+            {
+
+                audioPlay.PlayOneShot(audioClips[10]);
+                yield return new WaitForSeconds(audioClips[10].length);
+                audioPlay.PlayOneShot(audioClips[11]);
+                yield return new WaitForSeconds(audioClips[11].length);
 
             }
 
+            mousediable.GetComponent<BoxCollider>().enabled = false;         //restore everything so the players can keep playing 
+            isComparing = false;
             CompareID1 = 0;
             CompareID2 = 0;
             CardName1 = "";
             CardName2 = "";
             UpCards = 0;
             
-            yield return new WaitForSeconds(0.5f);
+            
 
-            Time.timeScale = 1;
+            
             
             
             yield break;
@@ -100,6 +132,7 @@ public class CardManager : MonoBehaviour
             {
                 Debug.Log("No");
                 UpCards = 0;
+
                 yield return new WaitForSeconds(1.5f);
                 GameObject.Find(CardName1).transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
                 GameObject.Find(CardName2).transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
@@ -209,7 +242,9 @@ public class CardManager : MonoBehaviour
                 CompareID2 = 0;
                 CardName1 = "";
                 CardName2 = "";
-                Destroy(MouseDisabler);
+;
+                isComparing = false;
+                mousediable.GetComponent<BoxCollider>().enabled = false;
                 yield break;
 
             }
