@@ -22,5 +22,8 @@ public class GameButton : MonoBehaviour
     {
         SceneManager.LoadScene(scene_name);
     }
-
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

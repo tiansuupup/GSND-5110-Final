@@ -7,10 +7,16 @@ public class CardManager : MonoBehaviour
 
     public Transform[] CardPoints; //Create the positions
     public GameObject[] Cards; //load all the cards
-    public int UpCards = 0;
+
     public bool isComparing = false;
+
+
+    public int UpCards = 0;
+    public int matchedCards = 0;
     public int CompareID1 = 0;
     public int CompareID2 = 0;
+
+
     public string CardName1 = "";
     public string CardName2 = "";
     public GameObject mousediable;
@@ -49,6 +55,7 @@ public class CardManager : MonoBehaviour
 
     public void CardTurningUp()
     {
+        audioPlay.PlayOneShot(audioClips[0]);
         UpCards++;
     }
     
@@ -130,6 +137,8 @@ public class CardManager : MonoBehaviour
         {
             if (CompareID1 != CompareID2)
             {
+
+                audioPlay.PlayOneShot(audioClips[2]);
                 Debug.Log("No");
                 UpCards = 0;
 
